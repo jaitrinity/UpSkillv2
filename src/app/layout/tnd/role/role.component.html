@@ -1,0 +1,47 @@
+
+<div class="container-fluid" style="padding: 10px">
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Create Role
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Role</label>
+                    <input type="text" class="form-control input-sm" [(ngModel)]="roleName" />
+                </div>
+        
+                <div class="col-md-2">
+                    <label style="color: transparent;display: block">0</label>
+                    <button class="btn btn-sm text-white text-bold" [ngStyle]="{'background-color':button}"
+                        (click)="submitRoleData()">Submit</button>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+
+<!-- <div class="container-fluid" style="padding: 10px">
+    <div class="row">
+        <div class="col-md-3">
+            <label>Role</label>
+            <input type="text" class="form-control input-sm" [(ngModel)]="roleName" />
+        </div>
+
+        <div class="col-md-2">
+            <label style="color: transparent;display: block">0</label>
+            <button class="btn btn-sm text-white text-bold" [ngStyle]="{'background-color':button}"
+                (click)="submitRoleData()">Submit</button>
+        </div>
+    </div>
+
+</div> -->
+
+<div class="row" style="margin-top:10px">
+    <div class="col-md-12" style="overflow: auto">
+        <ng2-smart-table [settings]="roleTableSettings" [source]="roleDataList"></ng2-smart-table>
+    </div>
+</div>

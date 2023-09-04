@@ -1,0 +1,59 @@
+<main class="Background" *ngIf='ShowLoading'>
+  <div class="loader">
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__ball"></div>
+  </div>
+</main>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #SideMenu class="sidenav" fixedInViewport
+  
+        [mode]="'side'"
+        [opened]="ToggleVariable">
+      <mat-toolbar>
+        <img src="assets/img/UpskillLogo.png" alt="" style="height: 50px">
+        <!-- <span>UpSkill</span> -->
+        
+      </mat-toolbar>
+      <ul class="unselectable">
+        <li [routerLink]="[menu.routerLink]" [routerLinkActive] = '["ActiveRoute"]' *ngFor="let menu of tndMenuList"> 
+            <img [src]="[menu.icon]" alt="" style="width : 20px;border-radius: 10px"> 
+            {{menu.submenuName}}
+        </li>
+      </ul>
+  
+                     
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- style="position: sticky; top: 0; z-index: 20;" -->
+      <mat-toolbar>
+        <!-- <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="SideMenu.toggle()">
+          <mat-icon aria-label="Side nav toggle icon" color='primary'>menu</mat-icon>
+        </button> -->
+       
+        {{submenuName}}
+        <span class="example_spacer"></span>
+        
+          <button mat-button (click)='logout()' >
+            {{empName}} || Logout 
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+  
+        
+      </mat-toolbar>
+      
+      <div style="background: white;height: 87%;border-radius: 0px 0px 35px 35px;margin: 0px 0px 8px 0px;overflow: auto">
+        <router-outlet></router-outlet>
+        <!-- Add Content Here -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
